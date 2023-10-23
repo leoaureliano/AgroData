@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+import math
+import requests
+
+# Substitua pelo link direto do seu conjunto de dados
+url = "https://caminho_para_seu_conjunto_de_dados.com/dataset.csv"
+resposta = requests.get('https://indicadores.agricultura.gov.br/agrostat/index.htm')
+conteudo = resposta.content
+
+# Passo 2: Autenticar e montar o Google Drive
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Passo 3: Salvar o conteúdo no Google Drive
+caminho_no_drive = "/content/drive/MyDrive/sua_pasta/dataset.csv"
+with open(caminho_no_drive, 'wb') as f:
+    f.write(conteudo)
